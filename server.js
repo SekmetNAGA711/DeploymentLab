@@ -7,4 +7,4 @@ app.get('/api/ice', (req,res) => {
     res.status(200).send('You get vanilla and Strawberry flavor')
    })
    
-   app.listen(4004, () => console.log("server running on 4004"))
+   app.listen(4000, () => console.log("server running on 4000"))
