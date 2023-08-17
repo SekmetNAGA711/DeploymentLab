@@ -3,6 +3,18 @@ const app = express()
 
 app.use(express.static(`${__dirname}/public`))
 
+// include and initialize the rollbar library with your access token
+var Rollbar = require('rollbar')
+var rollbar = new Rollbar({
+  accessToken: '8affa7a9742d47d7a3617e4107b354c9',
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+})
+
+// record a generic message and send it to Rollbar
+rollbar.log('Hello world!')
+
+
 app.get('/api/ice', (req,res) => {
     res.status(200).send('You get vanilla and Strawberry flavor')
    })
