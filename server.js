@@ -16,7 +16,12 @@ rollbar.log('Hello world!')
 
 
 app.get('/api/ice', (req,res) => {
-    res.status(200).send('You get vanilla and Strawberry flavor')
+    rollbar.info("Someone requested some ice cream")
+    res.status(200).send('You get vanilla and Strawberry flavor').catch((err)=>{
+        rollbar.error(err)
+        console.log(err)
+    })
+    
    })
    
    app.listen(4000, () => console.log("server running on 4000"))
